@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Admin Dashboard!</h1>
+    <div class="search-container">
+      <input type="text" id="search-users" placeholder="Search users..." aria-label="Search users">
+    </div>
+    <div class="dashboard">
+      <div id="user-list" class="user-list">
+        <div class="loading">
+          <div class="loader"></div>
+          Loading users...
+        </div>
+      </div>
+      <div id="post-list" class="post-list">
+        <h2 id="post">Posts</h2>
+        <div id="post" class="search-container">
+          <input type="text" id="search-posts" placeholder="Search posts of selected user..." aria-label="Search posts">
+        </div>
+        <div id="posts-container" class="posts-container">
+          <div class="empty-state">No posts available. Select a user to view their posts.</div>
+        </div>
+        <div id="pagination" class="pagination"></div>
+      </div>
+    </div>
+  </div>
+  <button id="back-to-top" title="Go to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
