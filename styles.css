@@ -1,7 +1,6 @@
-/* General Styles */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f9;
+  background-color: #5b6705;
   color: #333;
   margin: 0;
   padding: 0;
@@ -15,40 +14,24 @@ body {
 
 h1 {
   text-align: center;
-  color: #444;
+  color: #333;
   font-size: 2.5em;
   margin-bottom: 35px;
 }
 
 .welcome-message {
   text-align: center;
-  color: #666;
+  color: #555;
   font-size: 1.1em;
   margin-bottom: 20px;
 }
 
-/* Search Bar */
 .search-container {
   margin-bottom: 20px;
   text-align: center;
 }
 
-#search-users {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-#search-users:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
+#search-users,
 #search-posts {
   width: 100%;
   max-width: 400px;
@@ -58,21 +41,25 @@ h1 {
   font-size: 1em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
-  margin-left: 13px;
-  margin-bottom: 20px;
+  background: linear-gradient(145deg, #ffffff, #aaaaaa);
 }
 
+#search-users:focus,
 #search-posts:focus {
   outline: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#post {
-  display: inline;
-  margin-left: -5px;
+#search-posts {
+  margin-top: -400px;
+  margin-left: 10px;
+  margin-bottom: 20px;
 }
 
-/* Dashboard Layout */
+#post {
+  display: inline;
+}
+
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -100,7 +87,6 @@ h1 {
   flex: 2;
 }
 
-/* Loading State */
 .loading {
   text-align: center;
   color: #888;
@@ -125,16 +111,14 @@ h1 {
   100% { transform: rotate(360deg); }
 }
 
-/* Empty State */
 .empty-state {
   text-align: center;
-  color: #888;
+  color: #fff9f9;
   font-style: italic;
 }
 
-/* User Cards */
 .user-card {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 20px;
@@ -142,6 +126,7 @@ h1 {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ffffff, #f9f9f9);
 }
 
 .user-card:hover {
@@ -150,14 +135,15 @@ h1 {
 }
 
 .user-card.active {
-  background-color: #e0f7fa;
+  background-color: #00bcd4;
   border-color: #00bcd4;
+  color: #fff;
 }
 
 .user-card h2 {
   margin: 0;
   font-size: 1.2em;
-  color: #555;
+  color: #444;
 }
 
 .user-card p {
@@ -165,15 +151,15 @@ h1 {
   color: #777;
 }
 
-/* Post Cards */
 .post-card {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #ffffff, #f9f9f9);
 }
 
 .post-card:hover {
@@ -184,7 +170,7 @@ h1 {
 .post-card h3 {
   margin: 0;
   font-size: 1.1em;
-  color: #555;
+  color: #444;
 }
 
 .post-card p {
@@ -192,7 +178,6 @@ h1 {
   color: #777;
 }
 
-/* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
@@ -202,22 +187,32 @@ h1 {
 
 .pagination button {
   padding: 10px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #c77dff;
   border-radius: 8px;
-  background: #fff;
+  background: #9d4edd;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
+  background: linear-gradient(145deg, #e0aaff, #e0aaff);
 }
 
 .pagination button:hover {
-  background: #f0f0f0;
+  background: #c77dff;
   transform: translateY(-2px);
 }
 
 .pagination button.active {
-  background: #00bcd4;
+  background: #7b2cbf;
   color: #fff;
-  border-color: #00bcd4;
+  border-color: #7b2cbf;
+}
+
+.pagination button.warning {
+  background: #ff7043;
+  color: #fff;
+}
+
+.pagination button.warning:hover {
+  background: #ff5722;
 }
 
 #back-to-top {
@@ -226,15 +221,173 @@ h1 {
   bottom: 20px;
   right: 20px;
   padding: 10px 15px;
-  background-color: #007aff;
+  background-color: #9d4edd;
   color: #fff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
 }
 
 #back-to-top:hover {
-  background-color: #005bb5;
+  background-color: #5a189a;
 }
 
+.alert {
+  padding: 15px;
+  background-color: #f44336;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert.success {
+  background-color: #8bc34a;
+}
+
+.alert.info {
+  background-color: #00bcd4;
+}
+
+.alert.warning {
+  background-color: #ff7043;
+}
+
+.user-card {
+  background: linear-gradient(145deg, #ff4081, #00bcd4);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-card.active {
+  background: linear-gradient(145deg, #00bcd4, #ff4081);
+  border-color: #00bcd4;
+}
+
+.user-card h2 {
+  margin: 0;
+  font-size: 1.2em;
+  color: white;
+}
+
+.user-card p {
+  margin: 5px 0;
+  color: white;
+}
+
+.post-card {
+  background: linear-gradient(145deg, #ff4081, #00bcd4);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-card h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: white;
+}
+
+.post-card p {
+  margin: 5px 0;
+  color: white;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #e0aaff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #814cb3;
+  border-radius: 20px;
+}
+
+.user-card {
+  background: linear-gradient(145deg, #3c096c, #7b2cbf);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-card.active {
+  background: linear-gradient(145deg, #7b2cbf, #240046); 
+  border-color: #50C878;
+}
+
+.user-card h2 {
+  margin: 0;
+  font-size: 1.2em;
+  color: white;
+}
+
+.user-card p {
+  margin: 5px 0;
+  color: white;
+}
+
+.post-card {
+  background: linear-gradient(145deg, #7b2cbf, #c77dff);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-card h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: white;
+}
+
+.post-card p {
+  margin: 5px 0;
+  color: white;
+}
