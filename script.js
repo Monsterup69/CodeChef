@@ -51,7 +51,11 @@ function fetchPosts(userId) {
   fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
     .then((response) => response.json())
     .then((data) => {
-      posts = data;
+      posts = data.map(post => ({
+        ...post,
+        title: generateEnglishTitle(), // Replace Latin title with English
+        body: generateEnglishText(),   // Replace Latin body with English
+      }));
       currentPage = 1;
       renderPosts();
       renderPagination();
@@ -59,6 +63,40 @@ function fetchPosts(userId) {
     .catch((error) => {
       postsContainer.innerHTML = "<div class='empty-state'>Failed to load posts. Please try again later.</div>";
     });
+}
+
+// Generate English title
+function generateEnglishTitle() {
+  const titles = [
+    "The Future of Technology",
+    "Exploring New Horizons",
+    "Innovations in Science",
+    "The Art of Programming",
+    "Breaking Barriers in AI",
+    "The Power of Data",
+    "Revolutionizing Industries",
+    "The Rise of Automation",
+    "The World of Cybersecurity",
+    "The Journey of Discovery",
+  ];
+  return titles[Math.floor(Math.random() * titles.length)];
+}
+
+// Generate English text
+function generateEnglishText() {
+  const texts = [
+    "Technology is advancing at an unprecedented pace, transforming the way we live and work.",
+    "Innovation is the key to solving the world's most pressing challenges.",
+    "The future belongs to those who embrace change and adapt to new realities.",
+    "Artificial intelligence is reshaping industries and creating new opportunities.",
+    "Data is the new oil, driving decisions and powering businesses worldwide.",
+    "Cybersecurity is more important than ever in our interconnected world.",
+    "Automation is revolutionizing workflows and increasing efficiency.",
+    "The journey of discovery is filled with challenges and opportunities.",
+    "Science and technology are the cornerstones of modern society.",
+    "The rise of digital transformation is changing the way we interact with the world.",
+  ];
+  return texts[Math.floor(Math.random() * texts.length)];
 }
 
 // Render posts
